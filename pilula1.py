@@ -1,12 +1,28 @@
-import math
-#LEITURA
-assinantes= int(input('digite a qtd de assinantes:'))
-mensalidades= float(input('Digite o valor da mensalidades:'))
-taxa=float(input('Digite a taxa de crescimento mensal%'))
-meses= int(input('digite a qtd de meses da projeção:'))
-#processamento
-assinantes_finais = assinantes * math.pow((1+taxa),meses)
-receita_final=assinantes_finais * mensalidades
-#saida
-print(f'assinantes estimados: {assinantes_finais:.0f}')
-print(f'receita estimada: R${receita_final:.2f}')
+def validarSenha(senha):
+    if len(senha) < 8:
+        return 'Senha Invalida, muito curta'
+    
+    temNumero = False
+    temMaiuscula = False
+    
+    for c in senha:
+            if c == ' ':
+                return 'Senha Invalida, não pode conter espaço.'
+        
+            if c >= '0' and c <= '9':
+                temNumero = True
+            
+            if c >= 'A' and c <= 'Z':
+                temMaiuscula = True
+        
+    if not temNumero:
+            return 'Senha invalida, não tem numero.'
+    
+    if not temMaiuscula:
+            return 'Senha invalida'
+    return 'Senha Válida.'
+
+ #main
+senha = input('Digite sua senha: ')           
+print(validarSenha(senha))
+ 
